@@ -1,8 +1,7 @@
-# Advent-Of-Code-Template
-A template repository for my Advent of Code repositories.
-It inludes:
-- A Visual Studio solution for C++
-- A class for determing what day should be executed
-- 25 cpp files for every day of the advent with pre-written functions
-- A single general header file for all the 25 cpp files
-- 2 text files for test- and real puzzle input per day (50 txt files)
+# Advent-Of-Code-2024
+
+Advnet of Code 2024 solutions in C++.
+
+
+If you search for a specific day X go to `Advent-Of-Code-2024/Days/DayX.cpp`.
+Inputs should be placed in `Advent-Of-Code-2024/Inputs/DayX.txt` or for tests in `.../DayXTest.txt` (the files are empty becouse of AoC copyright).
