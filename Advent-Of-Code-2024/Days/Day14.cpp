@@ -94,51 +94,24 @@ int Day14_Part2(stringstream& input)
 		}
 
 		//Check if connected
-		set<pair<int, int>> visited;
 		for (int i = 0; i < HEIGHT && searching; i++)
 		{
-			for (int j = 0; j < WIDTH && searching; j++)
+			if (image[i].find("#####################") != string::npos)
 			{
-				if (image[i][j] == '.' || visited.contains({ i,j }))
-					continue;
-
-				queue<pair<int, int>> next;
-				next.push({ i,j });
-				int cnt = 0;
-				visited.insert({ i,j });
-				while (!next.empty())
-				{
-					auto cur = next.front();
-					next.pop();
-					visited.insert(cur);
-					cnt++;
-					if (cur.first > 0 && image[cur.first - 1][cur.second] == '#' && !visited.contains({ cur.first - 1, cur.second }))
-						next.push({ cur.first - 1, cur.second });
-					if (cur.second > 0 && image[cur.first][cur.second - 1] == '#' && !visited.contains({ cur.first, cur.second - 1 }))
-						next.push({ cur.first, cur.second - 1 });
-					if (cur.first < HEIGHT - 1 && image[cur.first + 1][cur.second] == '#' && !visited.contains({ cur.first + 1, cur.second }))
-						next.push({ cur.first + 1, cur.second });
-					if (cur.second < WIDTH - 1 && image[cur.first][cur.second + 1] == '#' && !visited.contains({ cur.first, cur.second + 1 }))
-						next.push({ cur.first, cur.second + 1 });
-
-					if (cnt > 30)
-					{
-						searching = false;
-						break;
-					}
-				}
+				searching = false;
+				break;
 			}
 		}
 
 		//If found print the image :)
-		if (!searching)
+		/*if (!searching)
 		{
 			std::cout << endl << endl;
 			for (int i = 0; i < HEIGHT; i++)
 				cout << image[i] << endl;
 
 			std::cout << endl << endl;
-		}
+		}*/
 
 		elapsed++;
 	}
